@@ -8,10 +8,10 @@
     <h1>Login</h1>
     <form id="loginForm">
         <label for="username">Username:</label>
-        <input type="text" id="username" name="username"><br><br>
+        <input type="text" id="username" name="username" required><br><br>
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password"><br><br>
+        <input type="password" id="password" name="password" required><br><br>
 
         <button type="button" onclick="login()">Login</button>
     </form>
@@ -21,18 +21,17 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            localStorage.setItem('username', username);
-            localStorage.setItem('password', password);
+            // Example of sanitizing the username
+            const sanitizedUsername = username.replace(/[^a-zA-Z0-9]/g, '');
 
-            if (username === 'admin' && password === 'admin123') {
+            if (sanitizedUsername === 'admin' && password === 'admin123') {
                 alert('Login successful!');
             } else {
                 alert('Invalid credentials!');
             }
 
-            document.body.innerHTML += `<p>Welcome, ${username}!</p>`;
+            document.body.innerHTML += `<p>Welcome, ${sanitizedUsername}!</p>`;
         }
     </script>
 </body>
 </html>
-
