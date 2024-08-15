@@ -27,13 +27,16 @@
             // Example check (Replace with secure server-side authentication)
             // DO NOT use hardcoded credentials in production.
 
-            if (username === 'admin' && password === 'admin123') {
+            // Example of sanitizing the username
+            const sanitizedUsername = username.replace(/[^a-zA-Z0-9]/g, '');
+
+            if (sanitizedUsername === 'admin' && password === 'admin123') {
                 alert('Login successful!');
             } else {
                 alert('Invalid credentials!');
             }
 
-            document.getElementById('loginForm').reset();
+            document.body.innerHTML += `<p>Welcome, ${sanitizedUsername}!</p>`;
         });
     </script>
 </body>
