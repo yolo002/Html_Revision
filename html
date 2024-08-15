@@ -23,8 +23,10 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
+            // Removed localStorage usage
             // Example check (Replace with secure server-side authentication)
             // DO NOT use hardcoded credentials in production.
+
             if (username === 'admin' && password === 'admin123') {
                 alert('Login successful!');
             } else {
