@@ -13,15 +13,19 @@
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required><br><br>
 
-        <button type="button" onclick="login()">Login</button>
+        <button type="submit">Login</button>
     </form>
 
     <script>
-        function login() {
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form submission
+
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
             // Removed localStorage usage
+            // Example check (Replace with secure server-side authentication)
+            // DO NOT use hardcoded credentials in production.
 
             if (username === 'admin' && password === 'admin123') {
                 alert('Login successful!');
@@ -29,8 +33,8 @@
                 alert('Invalid credentials!');
             }
 
-            document.body.innerHTML += `<p>Welcome, ${username}!</p>`;
-        }
+            document.getElementById('loginForm').reset();
+        });
     </script>
 </body>
 </html>
